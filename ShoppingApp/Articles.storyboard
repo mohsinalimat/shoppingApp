@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ivF-m5-ZQK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="bzW-Qd-dYa">
+            <objects>
+                <navigationController storyboardIdentifier="ArticlesView" id="ivF-m5-ZQK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="qcg-VU-5Dg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.0" green="0.63752996920000005" blue="0.91163367029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.63752996920000005" blue="0.91163367029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZvK-5l-vRd" kind="relationship" relationship="rootViewController" id="Osl-BU-Rcg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ku-5a-Mh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-740" y="140"/>
+        </scene>
+        <!--Articles-->
+        <scene sceneID="M3L-ci-Efn">
+            <objects>
+                <viewController id="ZvK-5l-vRd" customClass="ArticlesViewController" customModule="ShoppingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nSp-b0-Y2g"/>
+                        <viewControllerLayoutGuide type="bottom" id="uqC-il-EZN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J2J-hw-H3R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TDK-Zu-XHV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="658"/>
+                                <color key="backgroundColor" red="0.54168749999999999" green="0.54168749999999999" blue="0.54168749999999999" alpha="0.45274156441717789" colorSpace="calibratedRGB"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="pi4-Vu-duS">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="0.63752996921539307" blue="0.91163367033004761" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="barTintColor" red="0.0" green="0.63752996920000005" blue="0.91163367029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="ZvK-5l-vRd" id="otd-Ye-IMw"/>
+                                    </connections>
+                                </searchBar>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZvK-5l-vRd" id="fSQ-je-kWF"/>
+                                    <outlet property="delegate" destination="ZvK-5l-vRd" id="pS9-Fp-PKB"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TDK-Zu-XHV" firstAttribute="bottom" secondItem="uqC-il-EZN" secondAttribute="top" constant="-9" id="CJT-uF-tK4"/>
+                            <constraint firstAttribute="trailing" secondItem="TDK-Zu-XHV" secondAttribute="trailing" id="Hdb-Rz-dDT"/>
+                            <constraint firstItem="TDK-Zu-XHV" firstAttribute="leading" secondItem="J2J-hw-H3R" secondAttribute="leading" id="f9G-Nb-Vga"/>
+                            <constraint firstItem="TDK-Zu-XHV" firstAttribute="top" secondItem="J2J-hw-H3R" secondAttribute="top" id="ymp-wW-wHl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Articles" id="a5h-ZE-G4q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="HzZ-yW-lyU">
+                            <color key="tintColor" red="0.99479166666666663" green="1" blue="1" alpha="0.45274156441717789" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="filterButtonPressed:" destination="ZvK-5l-vRd" id="VS4-KH-kXS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="articleSearchBar" destination="pi4-Vu-duS" id="iSV-KV-jOn"/>
+                        <outlet property="articlesTableView" destination="TDK-Zu-XHV" id="Tda-dH-nkU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cw1-xg-gbK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69.599999999999994" y="139.880059970015"/>
+        </scene>
+    </scenes>
+</document>
